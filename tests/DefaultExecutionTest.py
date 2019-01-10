@@ -1,6 +1,6 @@
 import unittest
-from lib.base.Block import Block
-from lib.base.Pipeline import Pipeline
+from tube.base.Block import Block
+from tube.base.Pipeline import Pipeline
 
 
 class BasicCompositionTest(unittest.TestCase):
@@ -11,8 +11,8 @@ class BasicCompositionTest(unittest.TestCase):
         block3 = Block()
 
         sequence = (
-            block1 >>
-            block2 >>
+            block1 |
+            block2 |
             block3
         )
 
@@ -30,8 +30,8 @@ class BasicCompositionTest(unittest.TestCase):
         block3 = Block()
 
         parallel = (
-            block1 >>
-            block2 >>
+            block1 |
+            block2 |
             block3
         )
 

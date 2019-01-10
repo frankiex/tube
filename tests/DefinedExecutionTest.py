@@ -1,7 +1,7 @@
 import unittest
-from lib.base.Block import Block
-from lib.base.Pipeline import Pipeline
-from lib.blocks.Data import Data
+from tube.base.Block import Block
+from tube.base.Pipeline import Pipeline
+from tube.blocks.Data import Data
 
 
 class MultiplyBy(Block):
@@ -10,7 +10,7 @@ class MultiplyBy(Block):
         self.by = by
         self.what = what
 
-    def process(self, input_data):
+    def execute(self, input_data):
         return {
             self.what: input_data[self.what] * self.by
         }
@@ -23,7 +23,7 @@ class DefinedCompositionTest(unittest.TestCase):
         result = Pipeline(
             Data({
                 "number": 5,
-            }) >>
+            }) |
             MultiplyBy("number", 2)
         ).execute()
 
@@ -38,22 +38,21 @@ class DefinedCompositionTest(unittest.TestCase):
             (
                 Data({
                     "number": 5,
-                }) >>
-                MultiplyBy("number", 2) >>
+                }) |
+                MultiplyBy("number", 2) |
                 MultiplyBy("number", 2)
             ) & (
                 Data({
                     "number2": 1,
-                }) >>
-                MultiplyBy("number2", 2) >>
+                }) |
+                MultiplyBy("number2", 2) |
                 MultiplyBy("number2", 2)
             )
-
         ).execute()
 
         self.assertEqual(
+            {0: {'number': 20}, 1: {'number2': 4}},
             result,
-            {"number": 20, "number2": 4}
         )
 
 

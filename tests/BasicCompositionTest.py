@@ -1,5 +1,5 @@
 import unittest
-from lib.base.Block import Block
+from tube.base.Block import Block
 
 
 class BasicCompositionTest(unittest.TestCase):
@@ -11,8 +11,8 @@ class BasicCompositionTest(unittest.TestCase):
         block3 = Block()
 
         sequence = (
-            block1 >>
-            block2 >>
+            block1 |
+            block2 |
             block3
         )
 

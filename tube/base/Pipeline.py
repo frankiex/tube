@@ -4,4 +4,4 @@ class Pipeline:
         self.pipeline = pipeline
 
     def execute(self, data = None):
-        return self.pipeline.execute(data)
+        return self.pipeline.invoke(data)

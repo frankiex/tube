@@ -1,0 +1,1 @@
+class CacheKeyNotFoundException(Exception): pass
