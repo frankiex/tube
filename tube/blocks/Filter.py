@@ -1,5 +1,5 @@
 from collections import Mapping
-from toolz import valmap, valfilter
+from toolz import valfilter
 from tube.base.Block import Block
 from tube.types import Invokable
 

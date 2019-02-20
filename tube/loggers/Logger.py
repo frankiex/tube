@@ -3,7 +3,6 @@ import siringa
 
 @siringa.register
 class Logger:
-
     def __init__(self, level):
         self.level = level
 

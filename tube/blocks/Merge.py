@@ -11,6 +11,10 @@ from tube.utils import is_primitive
 T = TypeVar('T')
 
 
+def merge_iterable(value1: Iterable, value2: Iterable) -> List:
+    return list(chain(value1, value2))
+
+
 class Merge(Block):
 
     _highest_number = 0
@@ -37,7 +41,7 @@ class Merge(Block):
                 return self.merge_mapping(value1, value2)
 
             if isinstance(value1, Iterable):
-                return self.merge_iterable(value1, value2)
+                return merge_iterable(value1, value2)
 
     def merge_mapping(self, value1: Mapping, value2: Mapping) -> Mapping:
         result = {}
@@ -49,6 +53,3 @@ class Merge(Block):
             elif key in value2:
                 result[key] = value2[key]
         return result
-
-    def merge_iterable(self, value1: Iterable, value2: Iterable) -> List:
-        return list(chain(value1, value2))

@@ -1,14 +1,16 @@
-from abc import ABC, abstractmethod
+from abc import ABC
+from datetime import datetime
+
+from tube.blocks.cache.CacheMissException import CacheMissException
 from tube.blocks.cache.FileCache import FileCache
 from tube.base.Block import Block
 from tube.utils import log
 
 
 class CachedBlock(Block, ABC):
-
     cache_engine = None
 
-    def invoke(self, data = None):
+    def invoke(self, data=None):
         if not not hasattr(self, 'cache_engine'):
             self.cache_engine = FileCache()
 
@@ -16,7 +18,7 @@ class CachedBlock(Block, ABC):
             last_serial = self.cache_engine.get(
                 "%s_last_key" % self.name
             )
-        except Exception:
+        except CacheMissException:
             last_serial = None
 
         current_serial = self.get_cache_serial()
@@ -46,4 +48,3 @@ class CachedBlock(Block, ABC):
     def get_cache_serial(self):
         log("Warning: Method get_cache_serial was not overriden, using current hour as fallback", 2)
         return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-

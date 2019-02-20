@@ -1,4 +1,6 @@
 import unittest
+
+from tube.blocks.cache.CacheMissException import CacheMissException
 from tube.blocks.cache.FileCache import FileCache
 
 
@@ -10,13 +12,13 @@ class FileCacheTest(unittest.TestCase):
         cache = FileCache(self.CACHE_PATH)
         cache.set("key", 123)
         self.assertEqual(cache.get("key"), 123)
-        self.assertRaises(KeyError, lambda: cache.get("key2"))
+        self.assertRaises(CacheMissException, lambda: cache.get("key2"))
 
     def test_cache_clear(self):
         cache = FileCache(self.CACHE_PATH)
         cache.set("key", 123)
         cache.clear()
-        self.assertRaises(KeyError, lambda: cache.get("key"))
+        self.assertRaises(CacheMissException, lambda: cache.get("key"))
 
     def setUp(self):
         cache = FileCache(self.CACHE_PATH)

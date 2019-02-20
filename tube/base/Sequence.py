@@ -4,14 +4,13 @@ from tube.base.BlockGroup import BlockGroup
 
 
 class Sequence(BlockGroup):
-
     def __init__(self, initialize=None):
         self.sequence = initialize if initialize else []
 
-    def invoke(self, data = None):
+    def invoke(self, data=None):
         result = reduce(
             lambda current_data, block:
-                self.invoke_block(block, current_data),
+            self.invoke_block(block, current_data),
             self.sequence,
             data
         )

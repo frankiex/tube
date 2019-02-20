@@ -1,13 +1,11 @@
 import os
 import pickle
 import tempfile
-
-from tube.blocks.cache.CacheNotFoundException import CacheKeyNotFoundException
+from tube.blocks.cache.CacheMissException import CacheMissException
 
 
 class FileCache:
-
-    def __init__(self, cache_file = None):
+    def __init__(self, cache_file=None):
         self.cache_file = cache_file
 
     def _get_file(self):
@@ -39,7 +37,10 @@ class FileCache:
 
     def get(self, key):
         cache = self._get_cache()
-        return cache[key]
+        try:
+            return cache[key]
+        except KeyError:
+            raise CacheMissException
 
     def clear(self):
         try:
