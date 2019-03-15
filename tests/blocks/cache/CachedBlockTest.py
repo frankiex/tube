@@ -1,8 +1,7 @@
 import unittest
 from unittest.mock import MagicMock, call
-import siringa
-from tube.blocks.cache.CachedBlock import CachedBlock
-from tube.blocks.cache.FileCache import FileCache
+from pipeworker.blocks.cache.CachedBlock import CachedBlock
+from pipeworker.blocks.cache.FileCache import FileCache
 
 
 class MassiveComputationBlock(CachedBlock):
@@ -17,7 +16,6 @@ class MassiveComputationBlock(CachedBlock):
 
 
 class CachedBlockTest(unittest.TestCase):
-    @siringa.inject
     def test_cache(self):
         cache = FileCache("./tests/temp/cache.pickle")
         cache.clear()

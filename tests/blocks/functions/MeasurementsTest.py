@@ -1,7 +1,7 @@
 import unittest
 from pandas import DataFrame
-from tube.functions.measurements import mae
-from tube.types.Dataset import Dataset
+from pipeworker.functions.measurements import mae
+from pipeworker.types.Dataset import Dataset
 
 
 class MeasurementsTest(unittest.TestCase):

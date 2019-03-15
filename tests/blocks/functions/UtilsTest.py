@@ -1,5 +1,5 @@
 import unittest
-from tube.functions.utils import dict_deep_merge
+from pipeworker.functions.utils import dict_deep_merge
 
 
 class UtilsTest(unittest.TestCase):

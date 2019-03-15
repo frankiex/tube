@@ -1,6 +1,6 @@
 import unittest
-from tube.base.Pipeline import Pipeline
-from tube.blocks.Function import Function
+from pipeworker.base.Pipeline import Pipeline
+from pipeworker.blocks.Function import Function
 
 
 class FunctionBlockTest(unittest.TestCase):

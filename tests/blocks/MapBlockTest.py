@@ -1,7 +1,7 @@
 import unittest
-from tube.base.Block import Block
-from tube.base.Pipeline import Pipeline
-from tube.blocks.Map import Map
+from pipeworker.base.Block import Block
+from pipeworker.base.Pipeline import Pipeline
+from pipeworker.blocks.Map import Map
 
 
 class MultiplyBy(Block):

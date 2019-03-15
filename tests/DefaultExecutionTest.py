@@ -1,6 +1,6 @@
 import unittest
-from tube.base.Block import Block
-from tube.base.Pipeline import Pipeline
+from pipeworker.base.Block import Block
+from pipeworker.base.Pipeline import Pipeline
 
 
 class BasicCompositionTest(unittest.TestCase):

@@ -1,8 +1,8 @@
 import unittest
 from pandas import DataFrame
-from tube.base.Pipeline import Pipeline
-from tube.blocks.datasets.TrainTestSplit import TrainTestSplit
-from tube.types.Dataset import Dataset
+from pipeworker.base.Pipeline import Pipeline
+from pipeworker.blocks.datasets.TrainTestSplit import TrainTestSplit
+from pipeworker.types.Dataset import Dataset
 
 
 class TrainTestSplitTest(unittest.TestCase):

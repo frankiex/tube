@@ -1,7 +1,7 @@
 import unittest
-from tube.base.Block import Block
-from tube.base.Pipeline import Pipeline
-from tube.blocks.Filter import Filter
+from pipeworker.base.Block import Block
+from pipeworker.base.Pipeline import Pipeline
+from pipeworker.blocks.Filter import Filter
 
 
 class MultiplyBy(Block):

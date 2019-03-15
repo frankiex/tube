@@ -1,7 +1,7 @@
 import unittest
 
-from tube.blocks.cache.CacheMissException import CacheMissException
-from tube.blocks.cache.FileCache import FileCache
+from pipeworker.blocks.cache.CacheMissException import CacheMissException
+from pipeworker.blocks.cache.FileCache import FileCache
 
 
 class FileCacheTest(unittest.TestCase):
