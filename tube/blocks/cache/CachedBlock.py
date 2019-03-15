@@ -46,5 +46,5 @@ class CachedBlock(Block, ABC):
         return self
 
     def get_cache_serial(self):
-        log("Warning: Method get_cache_serial was not overriden, using current hour as fallback", 2)
+        log("Warning: Method get_cache_serial was not overridden, using current hour as fallback", 2)
         return datetime.now().strftime("%Y-%m-%d %H:%M:%S")

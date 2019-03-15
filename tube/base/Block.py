@@ -6,11 +6,11 @@ class Block:
 
     name: str
 
-    def invoke(self, data):
-        return self.execute(data)
+    def invoke(self, dataset):
+        return self.execute(dataset)
 
-    def execute(self, data):
-        return data
+    def execute(self, dataset):
+        return dataset
 
     def set_name(self, value: str) -> 'Block':
         self.name = value
