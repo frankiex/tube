@@ -22,7 +22,13 @@ VERSION = None
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    # 'requests', 'maya', 'records',
+    "tabulate",
+    "termcolor",
+    "pandas",
+    "sklearn",
+    "toolz",
+    "pydash",
+    "infusion",
 ]
 
 # What packages are optional?

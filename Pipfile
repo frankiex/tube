@@ -12,7 +12,7 @@ pandas = "*"
 sklearn = "*"
 toolz = "*"
 pydash = "*"
-infusion = "==0.1.4"
+infusion = "*"
 
 [requires]
 python_version = "3.7"
